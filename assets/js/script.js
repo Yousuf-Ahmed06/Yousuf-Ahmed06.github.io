@@ -151,20 +151,28 @@ let cachedCTFsDoc = null;
 
 async function getCTFsDocument() {
     if (cachedCTFsDoc) return cachedCTFsDoc;
-    try {
-        const response = await fetch('./ctfs.html');
-        if (!response.ok) throw new Error(`HTTP error ${response.status}`);
-        const html = await response.text();
-        const parser = new DOMParser();
-        cachedCTFsDoc = parser.parseFromString(html, 'text/html');
-        return cachedCTFsDoc;
-    } catch (err) {
-        console.warn('Could not fetch ctfs.html:', err);
-        return null;
+    const candidatePaths = ['./ctf.html', './ctfs.html', '/ctf.html', '/ctfs.html'];
+    for (const path of candidatePaths) {
+        try {
+            const response = await fetch(path);
+            if (response.ok) {
+                const html = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                if (doc.querySelector('#ctf-grid .ctf-card')) {
+                    cachedCTFsDoc = doc;
+                    return cachedCTFsDoc;
+                }
+            }
+        } catch (e) {
+            // try next candidate path
+        }
     }
+    console.warn('Could not fetch CTFs document from /ctf or /ctfs');
+    return null;
 }
 
-// Handler for home page (index.html): displays the top 3 CTF cards from ctfs.html
+// Handler for home page (index.html): displays the latest 3 CTF rankings from /ctf page
 async function initHomeCTFs() {
     const homeGrid = document.getElementById('home-ctf-grid');
     if (!homeGrid) return; // Not on home page
@@ -175,10 +183,31 @@ async function initHomeCTFs() {
     const allCards = Array.from(doc.querySelectorAll('#ctf-grid .ctf-card'));
     if (!allCards.length) return;
 
-    // Take top 3
-    const top3 = allCards.slice(0, 3);
+    // Helper to get timestamp from card
+    function getCardTime(card) {
+        const rawDate = card.getAttribute('data-date') || '';
+        if (rawDate) {
+            const parsed = new Date(rawDate).getTime();
+            if (!isNaN(parsed)) return parsed;
+        }
+        const textDate = card.querySelector('.ctf-date')?.textContent.trim() || '';
+        const parsedText = new Date(textDate).getTime();
+        return isNaN(parsedText) ? 0 : parsedText;
+    }
+
+    // Sort cards: latest date first (descending), tie-breaker by best percentile rank (ascending)
+    allCards.sort((a, b) => {
+        const timeDiff = getCardTime(b) - getCardTime(a);
+        if (timeDiff !== 0) return timeDiff;
+        const pA = parseFloat(a.getAttribute('data-percentile')) || 999;
+        const pB = parseFloat(b.getAttribute('data-percentile')) || 999;
+        return pA - pB;
+    });
+
+    // Take latest 3 CTF rankings
+    const latest3 = allCards.slice(0, 3);
     homeGrid.innerHTML = '';
-    top3.forEach(card => {
+    latest3.forEach(card => {
         homeGrid.appendChild(card.cloneNode(true));
     });
 }
