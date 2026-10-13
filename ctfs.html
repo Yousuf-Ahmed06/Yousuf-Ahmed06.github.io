@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="yousuf ahmed, ctf competitions, capture the flag, cybersecurity, picoctf, hack the box, tryhackme, penetration testing" />
+    <meta name="description" content="All competitive cybersecurity CTF participations, global rankings, and performances by Yousuf Ahmed." />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Favicon -->
+    <link id="favicon" rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-png">
+    <title>CTF Competitions | Yousuf Ahmed</title>
+</head>
+<body>
+
+<!-- navbar starts -->
+<header class="findings-header ctfs-header">
+    <a href="/" class="logo"> Yousuf</a>
+
+    <nav class="navbar">
+        <ul>
+            <li>
+                <a href="/#ctfs" class="nav-back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to Home</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<!-- navbar ends -->
+
+<!-- all ctfs section starts -->
+<section class="ctf-section ctfs-page" id="ctfs-all">
+
+    <h2 class="heading"><i class="fas fa-flag"></i> All <span>CTF Competitions</span></h2>
+    <p class="quote">Complete archive of competitive cybersecurity and capture-the-flag events, rankings, and team performances.</p>
+
+    <!-- Filter Bar -->
+    <div class="ctf-filter-container">
+        <div class="filter-group">
+            <label for="filter-ctf-year"><i class="fas fa-calendar-alt"></i> Year</label>
+            <select id="filter-ctf-year" class="filter-select">
+                <option value="all">All Years</option>
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label for="filter-ctf-organizer"><i class="fas fa-building"></i> Organizer / Platform</label>
+            <select id="filter-ctf-organizer" class="filter-select">
+                <option value="all">All Organizers</option>
+                <option value="world wide flags">World Wide Flags</option>
+                <option value="l3ak">L3AK.team</option>
+                <option value="carnegie mellon">Carnegie Mellon University</option>
+                <option value="hack the box">Hack The Box</option>
+                <option value="tryhackme">TryHackMe</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label for="filter-ctf-standing"><i class="fas fa-trophy"></i> Placement / Standing</label>
+            <select id="filter-ctf-standing" class="filter-select">
+                <option value="all">All Standings</option>
+                <option value="top-1">Top 1% or better</option>
+                <option value="top-5">Top 5% or better</option>
+                <option value="top-10">Top 10% or better</option>
+                <option value="top-15">Top 15% or better</option>
+            </select>
+        </div>
+
+        <div class="filter-group filter-actions">
+            <button id="reset-ctf-filter" class="filter-reset-btn" type="button">
+                <i class="fas fa-undo-alt"></i> Reset
+            </button>
+            <span class="ctf-count" id="ctf-count">Showing 6 of 6 competitions</span>
+        </div>
+    </div>
+
+    <!-- CTFs Grid (All Competitions) -->
+    <div class="box-container" id="ctf-grid">
+
+        <!-- CTF Card 1 -->
+        <div class="box ctf-card" data-year="2025" data-organizer="world wide flags" data-standing="top-5" data-percentile="2.5">
+            <div class="ctf-header">
+                <h3 class="ctf-name">World Wide CTF 2025</h3>
+                <p class="ctf-date">July 2025</p>
+            </div>
+            <p class="ctf-organizer">by World Wide Flags</p>
+            <div class="ctf-rank">
+                <p>Top 2.5%</p>
+                <span>Rank: 35 / 1,500</span>
+            </div>
+        </div>
+
+        <!-- CTF Card 2 -->
+        <div class="box ctf-card" data-year="2025" data-organizer="l3ak" data-standing="top-15" data-percentile="11">
+            <div class="ctf-header">
+                <h3 class="ctf-name">L3AK CTF</h3>
+                <p class="ctf-date">July 2025</p>
+            </div>
+            <p class="ctf-organizer">by L3AK.team</p>
+            <div class="ctf-rank">
+                <p>Top 11%</p>
+                <span>Rank: 181 / 1,587+</span>
+            </div>
+        </div>
+
+        <!-- CTF Card 3 -->
+        <div class="box ctf-card" data-year="2025" data-organizer="carnegie mellon" data-standing="top-1" data-percentile="1">
+            <div class="ctf-header">
+                <h3 class="ctf-name">PicoCTF 2025</h3>
+                <p class="ctf-date">Mar 2025</p>
+            </div>
+            <p class="ctf-organizer">by Carnegie Mellon University</p>
+            <div class="ctf-rank">
+                <p>Top 1%</p>
+                <span>Rank: 105 / 10,460+</span>
+            </div>
+        </div>
+
+        <!-- CTF Card 4 -->
+        <div class="box ctf-card" data-year="2024" data-organizer="hack the box" data-standing="top-10" data-percentile="10">
+            <div class="ctf-header">
+                <h3 class="ctf-name">Hack The Box Cyber Apocalypse</h3>
+                <p class="ctf-date">May 2024</p>
+            </div>
+            <p class="ctf-organizer">by Hack The Box</p>
+            <div class="ctf-rank">
+                <p>Top 10%</p>
+                <span>Rank: 1,245 / 13,000+</span>
+            </div>
+        </div>
+
+        <!-- CTF Card 5 -->
+        <div class="box ctf-card" data-year="2023" data-organizer="tryhackme" data-standing="top-5" data-percentile="5">
+            <div class="ctf-header">
+                <h3 class="ctf-name">TryHackMe Advent of Cyber</h3>
+                <p class="ctf-date">Dec 2023</p>
+            </div>
+            <p class="ctf-organizer">by TryHackMe</p>
+            <div class="ctf-rank">
+                <p>Top 5%</p>
+                <span>Rank: 8,530 / 180,000+</span>
+            </div>
+        </div>
+
+        <!-- CTF Card 6 -->
+        <div class="box ctf-card" data-year="2023" data-organizer="carnegie mellon" data-standing="top-15" data-percentile="15">
+            <div class="ctf-header">
+                <h3 class="ctf-name">PicoCTF 2023</h3>
+                <p class="ctf-date">Mar 2023</p>
+            </div>
+            <p class="ctf-organizer">by Carnegie Mellon University</p>
+            <div class="ctf-rank">
+                <p>Top 15%</p>
+                <span>Rank: 3,102 / 20,000+</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Empty State (hidden by default) -->
+    <div id="ctf-no-results" class="ctf-no-results" style="display: none;">
+        <i class="fas fa-search"></i>
+        <h3>No CTF competitions match the selected criteria</h3>
+        <p>Try resetting the filters to view all documented competitions.</p>
+        <button id="clear-ctf-filters" class="btn" type="button">
+            <span>Clear Filters</span>
+            <i class="fas fa-undo-alt"></i>
+        </button>
+    </div>
+
+</section>
+<!-- all ctfs section ends -->
+
+<!-- footer section starts -->
+<section class="footer">
+  <div class="box-container">
+    <h2>Connect With Me</h2>
+    <p>Feel free to connect on LinkedIn or reach out for collaboration.</p>
+  </div>
+  <h1 class="credit">Designed & Developed by <a href="/">Yousuf Ahmed</a></h1>
+</section>
+<!-- footer section ends -->
+
+<!-- scroll top btn -->
+<a href="#ctfs-all" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
+
+<!-- jquery cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- custom js -->
+<script src="/assets/js/script.js"></script>
+
+</body>
+</html>

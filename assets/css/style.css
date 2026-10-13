@@ -459,8 +459,9 @@ header .navbar ul li a:hover {
   margin-bottom: 4rem;
 }
 
-/* Filter Bar */
-.findings-filter-container {
+/* Filter Bar (Findings & CTFs) */
+.findings-filter-container,
+.ctf-filter-container {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
@@ -474,7 +475,8 @@ header .navbar ul li a:hover {
   border: 1px solid #233554;
 }
 
-.findings-filter-container .filter-group {
+.findings-filter-container .filter-group,
+.ctf-filter-container .filter-group {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -482,7 +484,8 @@ header .navbar ul li a:hover {
   flex: 1 1 20rem;
 }
 
-.findings-filter-container .filter-group label {
+.findings-filter-container .filter-group label,
+.ctf-filter-container .filter-group label {
   font-size: 1.3rem;
   font-weight: 600;
   color: #ccd6f6;
@@ -492,12 +495,14 @@ header .navbar ul li a:hover {
   letter-spacing: 0.05rem;
 }
 
-.findings-filter-container .filter-group label i {
+.findings-filter-container .filter-group label i,
+.ctf-filter-container .filter-group label i {
   color: #64ffda;
   font-size: 1.2rem;
 }
 
-.findings-filter-container .filter-select {
+.findings-filter-container .filter-select,
+.ctf-filter-container .filter-select {
   background: #0a192f;
   border: 1px solid #233554;
   color: #ccd6f6;
@@ -512,12 +517,15 @@ header .navbar ul li a:hover {
 }
 
 .findings-filter-container .filter-select:focus,
-.findings-filter-container .filter-select:hover {
+.findings-filter-container .filter-select:hover,
+.ctf-filter-container .filter-select:focus,
+.ctf-filter-container .filter-select:hover {
   border-color: #64ffda;
   box-shadow: 0 0 10px rgba(100, 255, 218, 0.15);
 }
 
-.findings-filter-container .filter-actions {
+.findings-filter-container .filter-actions,
+.ctf-filter-container .filter-actions {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -527,7 +535,8 @@ header .navbar ul li a:hover {
   flex: 1 1 24rem;
 }
 
-.findings-filter-container .filter-reset-btn {
+.findings-filter-container .filter-reset-btn,
+.ctf-filter-container .filter-reset-btn {
   background: transparent;
   color: #64ffda;
   border: 1px solid #64ffda;
@@ -543,12 +552,14 @@ header .navbar ul li a:hover {
   gap: 0.6rem;
 }
 
-.findings-filter-container .filter-reset-btn:hover {
+.findings-filter-container .filter-reset-btn:hover,
+.ctf-filter-container .filter-reset-btn:hover {
   background: rgba(100, 255, 218, 0.12);
   transform: translateY(-2px);
 }
 
-.findings-filter-container .findings-count {
+.findings-filter-container .findings-count,
+.ctf-filter-container .ctf-count {
   font-size: 1.3rem;
   color: #8892b0;
   font-family: 'SF Mono', 'Fira Code', monospace;
@@ -697,7 +708,8 @@ header .navbar ul li a:hover {
 }
 
 /* Empty State */
-.findings-no-results {
+.findings-no-results,
+.ctf-no-results {
   text-align: center;
   padding: 6rem 2rem;
   background: #112240;
@@ -706,19 +718,22 @@ header .navbar ul li a:hover {
   margin-top: 2rem;
 }
 
-.findings-no-results i {
+.findings-no-results i,
+.ctf-no-results i {
   font-size: 4rem;
   color: #8892b0;
   margin-bottom: 1.5rem;
 }
 
-.findings-no-results h3 {
+.findings-no-results h3,
+.ctf-no-results h3 {
   font-size: 2rem;
   color: #ccd6f6;
   margin-bottom: 0.8rem;
 }
 
-.findings-no-results p {
+.findings-no-results p,
+.ctf-no-results p {
   font-size: 1.4rem;
   color: #8892b0;
   font-family: "Nunito", sans-serif;
@@ -726,7 +741,8 @@ header .navbar ul li a:hover {
   text-transform: none;
 }
 
-.findings-no-results .btn {
+.findings-no-results .btn,
+.ctf-no-results .btn {
   padding: 1.2rem 2.5rem;
   border-radius: 4px;
   font-family: "Nunito", sans-serif;
@@ -742,7 +758,8 @@ header .navbar ul li a:hover {
   transition: all 0.3s ease;
 }
 
-.findings-no-results .btn:hover {
+.findings-no-results .btn:hover,
+.ctf-no-results .btn:hover {
   background: rgba(100, 255, 218, 0.12);
   transform: translateY(-2px);
 }
@@ -752,23 +769,27 @@ header .navbar ul li a:hover {
   margin-top: 4rem;
 }
 
-/* dedicated findings page navbar */
-header.findings-header {
+/* dedicated subpage navbar (findings & ctfs) */
+header.findings-header,
+header.ctfs-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-header.findings-header #menu {
+header.findings-header #menu,
+header.ctfs-header #menu {
   display: none !important;
 }
 
-header.findings-header .navbar {
+header.findings-header .navbar,
+header.ctfs-header .navbar {
   display: flex;
   align-items: center;
 }
 
-header.findings-header .navbar ul {
+header.findings-header .navbar ul,
+header.ctfs-header .navbar ul {
   display: flex;
   align-items: center;
   list-style: none;
@@ -776,13 +797,16 @@ header.findings-header .navbar ul {
   padding: 0;
 }
 
-header.findings-header .navbar ul li {
+header.findings-header .navbar ul li,
+header.ctfs-header .navbar ul li {
   margin: 0;
   list-style: none;
 }
 
 header.findings-header .navbar ul li a.nav-back-btn,
-header.findings-header .nav-back-btn {
+header.findings-header .nav-back-btn,
+header.ctfs-header .navbar ul li a.nav-back-btn,
+header.ctfs-header .nav-back-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.8rem;
@@ -800,7 +824,9 @@ header.findings-header .nav-back-btn {
 }
 
 header.findings-header .navbar ul li a.nav-back-btn:hover,
-header.findings-header .nav-back-btn:hover {
+header.findings-header .nav-back-btn:hover,
+header.ctfs-header .navbar ul li a.nav-back-btn:hover,
+header.ctfs-header .nav-back-btn:hover {
   background: rgba(100, 255, 218, 0.12);
   color: #64ffda;
   transform: translateX(-4px);
@@ -810,11 +836,13 @@ header.findings-header .nav-back-btn:hover {
 }
 
 @media (max-width: 768px) {
-  header.findings-header {
+  header.findings-header,
+  header.ctfs-header {
     padding: 1.5rem 6%;
   }
 
-  header.findings-header .navbar {
+  header.findings-header .navbar,
+  header.ctfs-header .navbar {
     position: static;
     top: auto;
     right: auto;
@@ -825,18 +853,22 @@ header.findings-header .nav-back-btn:hover {
     text-align: right;
   }
 
-  header.findings-header .navbar ul {
+  header.findings-header .navbar ul,
+  header.ctfs-header .navbar ul {
     flex-flow: row;
     padding: 0;
   }
 
-  header.findings-header .navbar ul li {
+  header.findings-header .navbar ul li,
+  header.ctfs-header .navbar ul li {
     width: auto;
     margin: 0;
   }
 
   header.findings-header .navbar ul li a.nav-back-btn,
-  header.findings-header .nav-back-btn {
+  header.findings-header .nav-back-btn,
+  header.ctfs-header .navbar ul li a.nav-back-btn,
+  header.ctfs-header .nav-back-btn {
     display: inline-flex;
     padding: 0.7rem 1.4rem;
     font-size: 1.3rem;
@@ -847,7 +879,9 @@ header.findings-header .nav-back-btn:hover {
   }
 
   header.findings-header .navbar ul li a.nav-back-btn:hover,
-  header.findings-header .nav-back-btn:hover {
+  header.findings-header .nav-back-btn:hover,
+  header.ctfs-header .navbar ul li a.nav-back-btn:hover,
+  header.ctfs-header .nav-back-btn:hover {
     padding: 0.7rem 1.4rem;
     color: #64ffda;
     border: 1px solid #64ffda;
@@ -857,22 +891,43 @@ header.findings-header .nav-back-btn:hover {
 }
 
 @media (max-width: 480px) {
-  header.findings-header {
+  header.findings-header,
+  header.ctfs-header {
     padding: 1.5rem 4%;
   }
 
   header.findings-header .navbar ul li a.nav-back-btn,
-  header.findings-header .nav-back-btn {
+  header.findings-header .nav-back-btn,
+  header.ctfs-header .navbar ul li a.nav-back-btn,
+  header.ctfs-header .nav-back-btn {
     padding: 0.6rem 1.1rem;
     font-size: 1.25rem;
     gap: 0.5rem;
   }
 }
 
-/* dedicated findings page */
-.findings-page {
+/* dedicated findings & ctfs page */
+.findings-page,
+.ctfs-page {
   padding-top: 11rem;
   min-height: 85vh;
+}
+
+.ctfs-page .quote {
+  font-size: 1.6rem;
+  color: #8892b0;
+  text-align: center;
+  max-width: 700px;
+  margin: 1.5rem auto 4rem auto;
+  font-family: "Nunito", sans-serif;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  /* Show all CTF cards on dedicated page */
+  .ctfs-page .box-container .box:nth-child(n + 5) {
+    display: block !important;
+  }
 }
 
 .findings-page .back-nav {

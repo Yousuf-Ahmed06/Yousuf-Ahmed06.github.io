@@ -146,6 +146,96 @@ function initFindingsPage() {
     });
 }
 
+// --- CTF COMPETITIONS FILTER & FETCH LOGIC ---
+let cachedCTFsDoc = null;
+
+async function getCTFsDocument() {
+    if (cachedCTFsDoc) return cachedCTFsDoc;
+    try {
+        const response = await fetch('./ctfs.html');
+        if (!response.ok) throw new Error(`HTTP error ${response.status}`);
+        const html = await response.text();
+        const parser = new DOMParser();
+        cachedCTFsDoc = parser.parseFromString(html, 'text/html');
+        return cachedCTFsDoc;
+    } catch (err) {
+        console.warn('Could not fetch ctfs.html:', err);
+        return null;
+    }
+}
+
+// Handler for home page (index.html): displays the top 3 CTF cards from ctfs.html
+async function initHomeCTFs() {
+    const homeGrid = document.getElementById('home-ctf-grid');
+    if (!homeGrid) return; // Not on home page
+
+    const doc = await getCTFsDocument();
+    if (!doc) return; // Retain static fallback cards if fetch fails
+
+    const allCards = Array.from(doc.querySelectorAll('#ctf-grid .ctf-card'));
+    if (!allCards.length) return;
+
+    // Take top 3
+    const top3 = allCards.slice(0, 3);
+    homeGrid.innerHTML = '';
+    top3.forEach(card => {
+        homeGrid.appendChild(card.cloneNode(true));
+    });
+}
+
+// Handler for dedicated CTF page (ctfs.html): shows all competitions with filter controls
+function initCTFsPage() {
+    const ctfGrid = document.getElementById('ctf-grid');
+    if (!ctfGrid || document.getElementById('home-ctf-grid')) return;
+
+    function filterCTFs() {
+        const year = ($('#filter-ctf-year').val() || 'all').toString().toLowerCase();
+        const organizer = ($('#filter-ctf-organizer').val() || 'all').toString().toLowerCase();
+        const standing = ($('#filter-ctf-standing').val() || 'all').toString().toLowerCase();
+
+        const $cards = $('#ctf-grid .ctf-card');
+        let visibleCount = 0;
+
+        $cards.each(function () {
+            const cardYear = ($(this).data('year') || '').toString().toLowerCase();
+            const cardOrganizer = ($(this).data('organizer') || '').toString().toLowerCase();
+            const cardPercentile = parseFloat($(this).data('percentile')) || 999;
+
+            const matchYear = (year === 'all' || cardYear === year);
+            const matchOrganizer = (organizer === 'all' || cardOrganizer === organizer);
+
+            let matchStanding = true;
+            if (standing === 'top-1') matchStanding = cardPercentile <= 1;
+            else if (standing === 'top-5') matchStanding = cardPercentile <= 5;
+            else if (standing === 'top-10') matchStanding = cardPercentile <= 10;
+            else if (standing === 'top-15') matchStanding = cardPercentile <= 15;
+
+            if (matchYear && matchOrganizer && matchStanding) {
+                $(this).fadeIn(200);
+                visibleCount++;
+            } else {
+                $(this).hide();
+            }
+        });
+
+        $('#ctf-count').text(`Showing ${visibleCount} of ${$cards.length} competitions`);
+
+        if (visibleCount === 0) {
+            $('#ctf-no-results').fadeIn(200);
+        } else {
+            $('#ctf-no-results').hide();
+        }
+    }
+
+    $('#filter-ctf-year, #filter-ctf-organizer, #filter-ctf-standing').on('change', filterCTFs);
+    $('#reset-ctf-filter, #clear-ctf-filters').on('click', function () {
+        $('#filter-ctf-year').val('all');
+        $('#filter-ctf-organizer').val('all');
+        $('#filter-ctf-standing').val('all');
+        filterCTFs();
+    });
+}
+
 async function fetchMediumBlogs() {
     // --- CONFIGURATION ---
     const mediumUsername = 'yousuf06';
@@ -207,4 +297,6 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchMediumBlogs();
     initHomeFindings();
     initFindingsPage();
+    initHomeCTFs();
+    initCTFsPage();
 });
