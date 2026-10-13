@@ -130,10 +130,10 @@
     <h2 class="heading"><i class="fas fa-bug"></i> Valid <span>Bug Findings</span></h2>
     <p class="quote">Documented vulnerabilities acknowledged and resolved across responsible disclosure & bug bounty programs.</p>
 
-    <!-- Findings Grid (Featured 3) -->
-    <div class="box-container" id="findings-grid">
+    <!-- Findings Grid (Top 3 highest severity reports) -->
+    <div class="box-container" id="home-findings-grid">
 
-        <!-- Finding 1 -->
+        <!-- Finding 1: Critical - AirLock -->
         <div class="box finding-card" data-severity="critical" data-type="bola" data-program="airlock">
             <div class="finding-top">
                 <div class="finding-program">
@@ -148,14 +148,10 @@
             <div class="finding-meta">
                 <span class="meta-tag type-tag"><i class="fas fa-bug"></i> BOLA</span>
                 <span class="meta-tag status-tag"><i class="fas fa-check-circle"></i> Resolved</span>
-                <span class="meta-tag date-tag"><i class="far fa-calendar-alt"></i> 2025</span>
             </div>
-            <p class="finding-desc">
-                Identified flawed object ownership verification across REST API endpoints, permitting cross-tenant record retrieval and unauthorized resource modification.
-            </p>
         </div>
 
-        <!-- Finding 2 -->
+        <!-- Finding 2: High - DHL Group -->
         <div class="box finding-card" data-severity="high" data-type="idor" data-program="dhl group">
             <div class="finding-top">
                 <div class="finding-program">
@@ -170,14 +166,10 @@
             <div class="finding-meta">
                 <span class="meta-tag type-tag"><i class="fas fa-bug"></i> IDOR</span>
                 <span class="meta-tag status-tag"><i class="fas fa-check-circle"></i> Resolved</span>
-                <span class="meta-tag date-tag"><i class="far fa-calendar-alt"></i> 2024</span>
             </div>
-            <p class="finding-desc">
-                Discovered parameter tampering vulnerability allowing unauthenticated lookup of shipment metadata, tracking identifiers, and recipient records through manipulable request objects.
-            </p>
         </div>
 
-        <!-- Finding 3 -->
+        <!-- Finding 3: High - NFL -->
         <div class="box finding-card" data-severity="high" data-type="bac" data-program="nfl">
             <div class="finding-top">
                 <div class="finding-program">
@@ -192,18 +184,14 @@
             <div class="finding-meta">
                 <span class="meta-tag type-tag"><i class="fas fa-bug"></i> BAC</span>
                 <span class="meta-tag status-tag"><i class="fas fa-check-circle"></i> Resolved</span>
-                <span class="meta-tag date-tag"><i class="far fa-calendar-alt"></i> 2024</span>
             </div>
-            <p class="finding-desc">
-                Flawed authorization checks permitted standard users to access restricted administrative functions, organizational configurations, and management controls.
-            </p>
         </div>
 
     </div>
 
     <!-- View All Button -->
     <div class="viewall">
-        <a href="/findings" class="btn">
+        <a href="findings.html" class="btn">
             <span>View All</span>
             <i class="fas fa-arrow-right"></i>
         </a>
