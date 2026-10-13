@@ -29,7 +29,51 @@ $(document).ready(function () {
         });
     });
 
-        // smooth scrolling
+        // Bug Findings filter logic
+    function filterFindings() {
+        const severity = ($('#filter-severity').val() || 'all').toLowerCase();
+        const type = ($('#filter-type').val() || 'all').toLowerCase();
+        const program = ($('#filter-program').val() || 'all').toLowerCase();
+
+        const $cards = $('.findings .finding-card');
+        let visibleCount = 0;
+
+        $cards.each(function () {
+            const cardSeverity = ($(this).data('severity') || '').toString().toLowerCase();
+            const cardType = ($(this).data('type') || '').toString().toLowerCase();
+            const cardProgram = ($(this).data('program') || '').toString().toLowerCase();
+
+            const matchSeverity = (severity === 'all' || cardSeverity === severity);
+            const matchType = (type === 'all' || cardType === type);
+            const matchProgram = (program === 'all' || cardProgram === program);
+
+            if (matchSeverity && matchType && matchProgram) {
+                $(this).fadeIn(200);
+                visibleCount++;
+            } else {
+                $(this).hide();
+            }
+        });
+
+        $('#findings-count').text(`Showing ${visibleCount} of ${$cards.length} findings`);
+
+        if (visibleCount === 0) {
+            $('#findings-no-results').fadeIn(200);
+        } else {
+            $('#findings-no-results').hide();
+        }
+    }
+
+    $('#filter-severity, #filter-type, #filter-program').on('change', filterFindings);
+
+    $('#reset-findings-filter, #clear-findings-filters').on('click', function () {
+        $('#filter-severity').val('all');
+        $('#filter-type').val('all');
+        $('#filter-program').val('all');
+        filterFindings();
+    });
+
+    // smooth scrolling
     $('a[href*="#"]').on('click', function (e) {
         const href = $(this).attr('href');
         if (href && href.startsWith('#') && href.length > 1) {

@@ -34,6 +34,7 @@
             <ul>
             <li><a class="active" href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="#findings">Findings</a></li>
             <li><a href="#certifications">Certifications</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#experience">Experience</a></li>
@@ -122,6 +123,94 @@
     </div>
 </section>
 <!-- about section ends -->
+
+<!-- findings section starts -->
+<section class="findings" id="findings">
+
+    <h2 class="heading"><i class="fas fa-bug"></i> Valid <span>Bug Findings</span></h2>
+    <p class="quote">Documented vulnerabilities acknowledged and resolved across responsible disclosure & bug bounty programs.</p>
+
+    <!-- Findings Grid (Featured 3) -->
+    <div class="box-container" id="findings-grid">
+
+        <!-- Finding 1 -->
+        <div class="box finding-card" data-severity="critical" data-type="bola" data-program="airlock">
+            <div class="finding-top">
+                <div class="finding-program">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>AirLock</span>
+                </div>
+                <span class="severity-badge severity-critical">
+                    <i class="fas fa-circle"></i> Critical
+                </span>
+            </div>
+            <h3 class="finding-title">Broken Object Level Authorization (BOLA) in Resource Gateway</h3>
+            <div class="finding-meta">
+                <span class="meta-tag type-tag"><i class="fas fa-bug"></i> BOLA</span>
+                <span class="meta-tag status-tag"><i class="fas fa-check-circle"></i> Resolved</span>
+                <span class="meta-tag date-tag"><i class="far fa-calendar-alt"></i> 2025</span>
+            </div>
+            <p class="finding-desc">
+                Identified flawed object ownership verification across REST API endpoints, permitting cross-tenant record retrieval and unauthorized resource modification.
+            </p>
+        </div>
+
+        <!-- Finding 2 -->
+        <div class="box finding-card" data-severity="high" data-type="idor" data-program="dhl group">
+            <div class="finding-top">
+                <div class="finding-program">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>DHL Group</span>
+                </div>
+                <span class="severity-badge severity-high">
+                    <i class="fas fa-circle"></i> High
+                </span>
+            </div>
+            <h3 class="finding-title">Insecure Direct Object Reference (IDOR) in Consignment API</h3>
+            <div class="finding-meta">
+                <span class="meta-tag type-tag"><i class="fas fa-bug"></i> IDOR</span>
+                <span class="meta-tag status-tag"><i class="fas fa-check-circle"></i> Resolved</span>
+                <span class="meta-tag date-tag"><i class="far fa-calendar-alt"></i> 2024</span>
+            </div>
+            <p class="finding-desc">
+                Discovered parameter tampering vulnerability allowing unauthenticated lookup of shipment metadata, tracking identifiers, and recipient records through manipulable request objects.
+            </p>
+        </div>
+
+        <!-- Finding 3 -->
+        <div class="box finding-card" data-severity="high" data-type="bac" data-program="nfl">
+            <div class="finding-top">
+                <div class="finding-program">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>NFL</span>
+                </div>
+                <span class="severity-badge severity-high">
+                    <i class="fas fa-circle"></i> High
+                </span>
+            </div>
+            <h3 class="finding-title">Broken Access Control (BAC) on Management Portal</h3>
+            <div class="finding-meta">
+                <span class="meta-tag type-tag"><i class="fas fa-bug"></i> BAC</span>
+                <span class="meta-tag status-tag"><i class="fas fa-check-circle"></i> Resolved</span>
+                <span class="meta-tag date-tag"><i class="far fa-calendar-alt"></i> 2024</span>
+            </div>
+            <p class="finding-desc">
+                Flawed authorization checks permitted standard users to access restricted administrative functions, organizational configurations, and management controls.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- View All Button -->
+    <div class="viewall">
+        <a href="/findings" class="btn">
+            <span>View All</span>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+</section>
+<!-- findings section ends -->
 
 <!-- certifications section starts -->
 <section class="certifications" id="certifications">
