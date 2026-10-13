@@ -47,104 +47,6 @@ $(document).ready(function () {
 
 });
 
-// --- BUG FINDINGS FILTER & FETCH LOGIC ---
-const severityRank = {
-    'critical': 4,
-    'high': 3,
-    'medium': 2,
-    'low': 1
-};
-
-let cachedFindingsDoc = null;
-
-async function getFindingsDocument() {
-    if (cachedFindingsDoc) return cachedFindingsDoc;
-    try {
-        const response = await fetch('./findings.html');
-        if (!response.ok) throw new Error(`HTTP error ${response.status}`);
-        const html = await response.text();
-        const parser = new DOMParser();
-        cachedFindingsDoc = parser.parseFromString(html, 'text/html');
-        return cachedFindingsDoc;
-    } catch (err) {
-        console.warn('Could not fetch findings.html:', err);
-        return null;
-    }
-}
-
-// Handler for home page (index.html): dynamically displays the top 3 highest severity reports from findings.html
-async function initHomeFindings() {
-    const homeGrid = document.getElementById('home-findings-grid');
-    if (!homeGrid) return; // Not on home page
-
-    const doc = await getFindingsDocument();
-    if (!doc) return; // Retain static fallback cards if fetch fails
-
-    const allCards = Array.from(doc.querySelectorAll('#findings-grid .finding-card'));
-    if (!allCards.length) return;
-
-    // Sort all cards by severity rank (Critical -> High -> Medium -> Low)
-    allCards.sort((a, b) => {
-        const aSev = (a.getAttribute('data-severity') || '').toLowerCase();
-        const bSev = (b.getAttribute('data-severity') || '').toLowerCase();
-        return (severityRank[bSev] || 0) - (severityRank[aSev] || 0);
-    });
-
-    // Take top 3 highest severity reports
-    const top3 = allCards.slice(0, 3);
-    homeGrid.innerHTML = '';
-    top3.forEach(card => {
-        homeGrid.appendChild(card.cloneNode(true));
-    });
-}
-
-// Handler for dedicated findings page (findings.html): shows all findings with filter controls
-function initFindingsPage() {
-    const findingsGrid = document.getElementById('findings-grid');
-    if (!findingsGrid || document.getElementById('home-findings-grid')) return;
-
-    function filterFindings() {
-        const severity = ($('#filter-severity').val() || 'all').toLowerCase();
-        const type = ($('#filter-type').val() || 'all').toLowerCase();
-        const program = ($('#filter-program').val() || 'all').toLowerCase();
-
-        const $cards = $('#findings-grid .finding-card');
-        let visibleCount = 0;
-
-        $cards.each(function () {
-            const cardSeverity = ($(this).data('severity') || '').toString().toLowerCase();
-            const cardType = ($(this).data('type') || '').toString().toLowerCase();
-            const cardProgram = ($(this).data('program') || '').toString().toLowerCase();
-
-            const matchSeverity = (severity === 'all' || cardSeverity === severity);
-            const matchType = (type === 'all' || cardType === type);
-            const matchProgram = (program === 'all' || cardProgram === program);
-
-            if (matchSeverity && matchType && matchProgram) {
-                $(this).fadeIn(200);
-                visibleCount++;
-            } else {
-                $(this).hide();
-            }
-        });
-
-        $('#findings-count').text(`Showing ${visibleCount} of ${$cards.length} findings`);
-
-        if (visibleCount === 0) {
-            $('#findings-no-results').fadeIn(200);
-        } else {
-            $('#findings-no-results').hide();
-        }
-    }
-
-    $('#filter-severity, #filter-type, #filter-program').on('change', filterFindings);
-    $('#reset-findings-filter, #clear-findings-filters').on('click', function () {
-        $('#filter-severity').val('all');
-        $('#filter-type').val('all');
-        $('#filter-program').val('all');
-        filterFindings();
-    });
-}
 
 // --- CTF COMPETITIONS FILTER & FETCH LOGIC ---
 let cachedCTFsDoc = null;
@@ -324,8 +226,6 @@ async function fetchMediumBlogs() {
 // Call functions when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     fetchMediumBlogs();
-    initHomeFindings();
-    initFindingsPage();
     initHomeCTFs();
     initCTFsPage();
 });
