@@ -138,12 +138,32 @@ header .navbar ul li a:hover {
 #menu {
   font-size: 3rem;
   cursor: pointer;
-  color: rgb(24, 2, 63);
+  color: #64ffda;
+  background: transparent;
+  border: none;
   display: none;
+}
+#menu span {
+  display: block;
+  width: 2.6rem;
+  height: 0.3rem;
+  margin: 0.5rem auto;
+  background-color: #64ffda;
+  transition: all 0.3s ease-in-out;
+  border-radius: 2px;
 }
 @media (max-width: 768px) {
   #menu {
     display: block;
+  }
+  #menu.fa-times span:nth-child(1) {
+    transform: translateY(0.8rem) rotate(45deg);
+  }
+  #menu.fa-times span:nth-child(2) {
+    opacity: 0;
+  }
+  #menu.fa-times span:nth-child(3) {
+    transform: translateY(-0.8rem) rotate(-45deg);
   }
   header .navbar {
     position: fixed;
@@ -1346,3 +1366,138 @@ header.ctfs-header .nav-back-btn:hover {
   top: calc(100% - 12rem);
 }
 /* scroll top ends */
+
+/* =========================================
+   404 ERROR PAGE STYLING
+   ========================================= */
+.page_404 {
+  min-height: calc(100vh - 14rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10rem 2rem 5rem;
+  text-align: center;
+  background: radial-gradient(circle at 50% 38%, rgba(100, 255, 218, 0.05) 0%, rgba(10, 25, 47, 0) 70%);
+}
+
+.page_404 .container {
+  max-width: 65rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.page_404 .wrapper h1 {
+  font-size: 14rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #64ffda;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.6rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 35px rgba(100, 255, 218, 0.3);
+  user-select: none;
+}
+
+.page_404 .msg h3 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #ccd6f6;
+  margin-bottom: 1.2rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.page_404 .msg p {
+  font-size: 1.65rem;
+  color: #8892b0;
+  line-height: 1.7;
+  max-width: 48rem;
+  margin: 0 auto 3.2rem;
+  text-transform: none;
+}
+
+.page_404 .backbtn {
+  display: flex;
+  justify-content: center;
+}
+
+.page_404 .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.3rem 2.8rem;
+  border-radius: 4px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 1.55rem;
+  color: #64ffda;
+  background: transparent;
+  border: 1.5px solid #64ffda;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.04rem;
+}
+
+.page_404 .btn i {
+  font-size: 1.4rem;
+  transition: transform 0.25s ease;
+}
+
+.page_404 .btn:hover {
+  background: rgba(100, 255, 218, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(100, 255, 218, 0.2);
+}
+
+.page_404 .btn:hover i {
+  transform: translateX(-3px);
+}
+
+@media (max-width: 768px) {
+  .page_404 {
+    padding: 8rem 2rem 4rem;
+    min-height: calc(100vh - 13rem);
+  }
+
+  .page_404 .wrapper h1 {
+    font-size: 10rem;
+    letter-spacing: 0.4rem;
+  }
+
+  .page_404 .msg h3 {
+    font-size: 2.3rem;
+  }
+
+  .page_404 .msg p {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .page_404 .btn {
+    padding: 1.1rem 2.4rem;
+    font-size: 1.45rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .page_404 .wrapper h1 {
+    font-size: 7.5rem;
+    letter-spacing: 0.2rem;
+  }
+
+  .page_404 .msg h3 {
+    font-size: 1.9rem;
+  }
+
+  .page_404 .msg p {
+    font-size: 1.4rem;
+  }
+
+  .page_404 .btn {
+    padding: 1rem 2rem;
+    font-size: 1.35rem;
+  }
+}

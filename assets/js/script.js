@@ -9,10 +9,13 @@ $(document).ready(function () {
         $('#menu').removeClass('fa-times');
         $('.navbar').removeClass('nav-toggle');
 
-        if (window.scrollY > 60) {
-            document.querySelector('#scroll-top').classList.add('active');
-        } else {
-            document.querySelector('#scroll-top').classList.remove('active');
+        const scrollTopBtn = document.querySelector('#scroll-top');
+        if (scrollTopBtn) {
+            if (window.scrollY > 60) {
+                scrollTopBtn.classList.add('active');
+            } else {
+                scrollTopBtn.classList.remove('active');
+            }
         }
 
         // scroll spy
