@@ -15,6 +15,7 @@ html {
   font-size: 62.5%;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  scroll-padding-top: 6.5rem;
   color: #ccd6f6;
   background: #0a192f;
 }
@@ -86,6 +87,7 @@ header {
 section {
   min-height: 100vh;
   padding: 2rem 9%;
+  scroll-margin-top: 6.5rem;
 }
 .heading {
   font-size: 3.5rem;
@@ -354,8 +356,9 @@ header .navbar ul li a:hover {
   font-size: 2.5rem;
 }
 .about .row .content .tag {
+  display: inline-block;
   font-size: 1.4rem;
-  color: #020133;
+  color: #64ffda;
   font-weight: 600;
   margin-top: 1rem;
 }
@@ -493,7 +496,7 @@ header .navbar ul li a:hover {
 }
 
 /* --- Styling for the "Verify" button --- */
-.certifications .btn {
+.certifications .box .btn {
     padding: 1.2rem 2.5rem;
     border-radius: 4px;
     font-family: "Nunito", sans-serif;
@@ -506,14 +509,20 @@ header .navbar ul li a:hover {
     transition: all 0.3s ease;
 }
 
-.certifications .btn:hover {
+.certifications .box .btn:hover {
     background: rgba(100, 255, 218, 0.1); /* 'green-tint' on hover */
     color: #64ffda;
 }
 
-.certifications .btn i {
+.certifications .box .btn i {
     margin-left: 0.5rem;
     font-size: 1.3rem;
+}
+
+
+.certifications .viewall {
+    display: flex;
+    justify-content: center;
 }
 /* certifications section ends */
 

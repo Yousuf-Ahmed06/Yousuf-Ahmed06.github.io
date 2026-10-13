@@ -29,12 +29,20 @@ $(document).ready(function () {
         });
     });
 
-    // smooth scrolling
+        // smooth scrolling
     $('a[href*="#"]').on('click', function (e) {
-        e.preventDefault();
-        $('html, body').animate({
-            scrollTop: $($(this).attr('href')).offset().top,
-        }, 500, 'linear')
+        const href = $(this).attr('href');
+        if (href && href.startsWith('#') && href.length > 1) {
+            const target = $(href);
+            if (target.length) {
+                e.preventDefault();
+                const headerHeight = $('header').outerHeight() || 65;
+                const targetPosition = href === '#home' ? 0 : Math.max(0, target.offset().top - headerHeight);
+                $('html, body').animate({
+                    scrollTop: targetPosition,
+                }, 500, 'linear');
+            }
+        }
     });
 
 });
