@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="yousuf ahmed, ctf competitions, capture the flag, cybersecurity, picoctf, hack the box, tryhackme, penetration testing" />
+    <meta name="keywords" content="yousuf ahmed, ctf competitions, capture the flag, cybersecurity, bcs ctf, hack the box, picoctf, tryhackme, penetration testing" />
     <meta name="description" content="All competitive cybersecurity CTF participations, global rankings, and performances by Yousuf Ahmed." />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/assets/css/style.css">
@@ -45,6 +45,7 @@
             <label for="filter-ctf-year"><i class="fas fa-calendar-alt"></i> Year</label>
             <select id="filter-ctf-year" class="filter-select">
                 <option value="all">All Years</option>
+                <option value="2026">2026</option>
                 <option value="2025">2025</option>
                 <option value="2024">2024</option>
                 <option value="2023">2023</option>
@@ -55,10 +56,11 @@
             <label for="filter-ctf-organizer"><i class="fas fa-building"></i> Organizer / Platform</label>
             <select id="filter-ctf-organizer" class="filter-select">
                 <option value="all">All Organizers</option>
+                <option value="bangladesh computer society">Bangladesh Computer Society (BCS)</option>
+                <option value="hack the box">Hack The Box</option>
                 <option value="world wide flags">World Wide Flags</option>
                 <option value="l3ak">L3AK.team</option>
                 <option value="carnegie mellon">Carnegie Mellon University</option>
-                <option value="hack the box">Hack The Box</option>
                 <option value="tryhackme">TryHackMe</option>
             </select>
         </div>
@@ -78,14 +80,40 @@
             <button id="reset-ctf-filter" class="filter-reset-btn" type="button">
                 <i class="fas fa-undo-alt"></i> Reset
             </button>
-            <span class="ctf-count" id="ctf-count">Showing 6 of 6 competitions</span>
+            <span class="ctf-count" id="ctf-count">Showing 8 of 8 competitions</span>
         </div>
     </div>
 
     <!-- CTFs Grid (All Competitions) -->
     <div class="box-container" id="ctf-grid">
 
-        <!-- CTF Card 1 -->
+        <!-- CTF Card 1: BCS CTF 2026 -->
+        <div class="box ctf-card" data-year="2026" data-date="2026-09" data-organizer="bangladesh computer society" data-standing="top-5" data-percentile="4">
+            <div class="ctf-header">
+                <h3 class="ctf-name">BCS CTF 2026</h3>
+                <p class="ctf-date">Sep 2026</p>
+            </div>
+            <p class="ctf-organizer">by Bangladesh Computer Society (BCS)</p>
+            <div class="ctf-rank">
+                <p>Top 16 (Top 4%)</p>
+                <span>Rank: 16 / ~400 • 3rd International</span>
+            </div>
+        </div>
+
+        <!-- CTF Card 2: HTB Cyber Apocalypse 2026 -->
+        <div class="box ctf-card" data-year="2026" data-date="2026-07" data-organizer="hack the box" data-standing="top-10" data-percentile="9.2">
+            <div class="ctf-header">
+                <h3 class="ctf-name">HTB Cyber Apocalypse 2026</h3>
+                <p class="ctf-date">July 2026</p>
+            </div>
+            <p class="ctf-organizer">by Hack The Box</p>
+            <div class="ctf-rank">
+                <p>Top 10% (Solo)</p>
+                <span>Rank: 618 / 6,744</span>
+            </div>
+        </div>
+
+        <!-- CTF Card 3: World Wide CTF 2025 -->
         <div class="box ctf-card" data-year="2025" data-date="2025-07" data-organizer="world wide flags" data-standing="top-5" data-percentile="2.5">
             <div class="ctf-header">
                 <h3 class="ctf-name">World Wide CTF 2025</h3>
@@ -98,7 +126,7 @@
             </div>
         </div>
 
-        <!-- CTF Card 2 -->
+        <!-- CTF Card 4: L3AK CTF -->
         <div class="box ctf-card" data-year="2025" data-date="2025-07" data-organizer="l3ak" data-standing="top-15" data-percentile="11">
             <div class="ctf-header">
                 <h3 class="ctf-name">L3AK CTF</h3>
@@ -111,7 +139,7 @@
             </div>
         </div>
 
-        <!-- CTF Card 3 -->
+        <!-- CTF Card 5: PicoCTF 2025 -->
         <div class="box ctf-card" data-year="2025" data-date="2025-03" data-organizer="carnegie mellon" data-standing="top-1" data-percentile="1">
             <div class="ctf-header">
                 <h3 class="ctf-name">PicoCTF 2025</h3>
@@ -124,7 +152,7 @@
             </div>
         </div>
 
-        <!-- CTF Card 4 -->
+        <!-- CTF Card 6: HTB Cyber Apocalypse 2024 -->
         <div class="box ctf-card" data-year="2024" data-date="2024-05" data-organizer="hack the box" data-standing="top-10" data-percentile="10">
             <div class="ctf-header">
                 <h3 class="ctf-name">Hack The Box Cyber Apocalypse</h3>
@@ -137,7 +165,7 @@
             </div>
         </div>
 
-        <!-- CTF Card 5 -->
+        <!-- CTF Card 7: THM Advent of Cyber 2023 -->
         <div class="box ctf-card" data-year="2023" data-date="2023-12" data-organizer="tryhackme" data-standing="top-5" data-percentile="5">
             <div class="ctf-header">
                 <h3 class="ctf-name">TryHackMe Advent of Cyber</h3>
@@ -150,7 +178,7 @@
             </div>
         </div>
 
-        <!-- CTF Card 6 -->
+        <!-- CTF Card 8: PicoCTF 2023 -->
         <div class="box ctf-card" data-year="2023" data-date="2023-03" data-organizer="carnegie mellon" data-standing="top-15" data-percentile="15">
             <div class="ctf-header">
                 <h3 class="ctf-name">PicoCTF 2023</h3>
@@ -181,11 +209,9 @@
 
 <!-- footer section starts -->
 <section class="footer">
-  <div class="box-container">
-    <h2>Connect With Me</h2>
-    <p>Feel free to connect on LinkedIn or reach out for collaboration.</p>
-  </div>
-  <h1 class="credit">Designed & Developed by <a href="/">Yousuf Ahmed</a></h1>
+
+  <h1 class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/yousuf-ahmed27" target="_blank" rel="noopener noreferrer"> Yousuf Ahmed</a></h1>
+
 </section>
 <!-- footer section ends -->
 
