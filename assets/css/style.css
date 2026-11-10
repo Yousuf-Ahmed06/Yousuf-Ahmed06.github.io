@@ -1311,8 +1311,43 @@ header.ctfs-header .nav-back-btn:hover {
 }
 .footer .box-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  gap: 1.4rem;
+  padding: 2.5rem 0 2rem;
+  text-align: center;
+}
+.footer .box-container h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+.footer .footer-connect-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem 2.2rem;
+  border-radius: 0.5rem;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  background: #121329;
+  border: 1.5px solid #a855f7;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.15);
+  transition: all 0.25s ease;
+}
+.footer .footer-connect-btn i {
+  font-size: 1.8rem;
+  color: #22d3ee;
+}
+.footer .footer-connect-btn:hover {
+  background: rgba(168, 85, 247, 0.16);
+  border-color: #22d3ee;
+  color: #22d3ee;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(34, 211, 238, 0.2);
 }
 .footer .box-container .box {
   flex: 1 1 25rem;
