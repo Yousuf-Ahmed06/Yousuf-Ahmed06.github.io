@@ -174,6 +174,7 @@ async function fetchMediumBlogs() {
     // --- CONFIGURATION ---
     const mediumUsername = 'yousuf06';
     const blogContainer = document.querySelector('.blog-section .box-container');
+    if (!blogContainer) return;
 
     // Determine the number of posts to show based on screen width
     // On screens 768px or less, show 4 posts. Otherwise, show 6.
@@ -186,15 +187,14 @@ async function fetchMediumBlogs() {
         }
         const data = await response.json();
 
-        blogContainer.innerHTML = ''; // Clear the "Loading..." message
-
-        // Use the dynamic postsToShow variable to slice the array
-        const recentPosts = data.items.slice(0, postsToShow);
+        const recentPosts = (data.items || []).slice(0, postsToShow);
+        const parser = new DOMParser();
+        const fragment = document.createDocumentFragment();
 
         recentPosts.forEach(item => {
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = item.description;
-            const descriptionText = tempDiv.textContent || tempDiv.innerText || "";
+            // Parse with DOMParser (inert document) so embedded Medium <img> / tracking pixels are never fetched
+            const doc = parser.parseFromString(item.description || '', 'text/html');
+            const descriptionText = (doc.body?.textContent || '').trim();
             const snippet = descriptionText.substring(0, 120) + '...';
             const pubDate = new Date(item.pubDate).toLocaleDateString('en-US', {
                 year: 'numeric',
@@ -202,23 +202,46 @@ async function fetchMediumBlogs() {
                 day: 'numeric'
             });
 
-            // Blog Card HTML (no images)
-            const blogCardHTML = `
-                <div class="box">
-                    <div class="blog-content">
-                        <h3>
-                            <a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a>
-                        </h3>
-                        <p>${snippet}</p>
-                    </div>
-                    <div class="blog-meta">
-                        <span>${pubDate}</span>
-                        <span>${Math.ceil(descriptionText.length / 1500)} min read</span>
-                    </div>
-                </div>
-            `;
-            blogContainer.innerHTML += blogCardHTML;
+            const box = document.createElement('div');
+            box.className = 'box';
+
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'blog-content';
+
+            const heading = document.createElement('h3');
+            const link = document.createElement('a');
+            const safeUrl = /^https?:\/\//i.test(item.link || '') ? item.link : 'https://medium.com/@' + mediumUsername;
+            link.href = safeUrl;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.textContent = item.title || '';
+            heading.appendChild(link);
+
+            const excerpt = document.createElement('p');
+            excerpt.textContent = snippet;
+
+            contentDiv.appendChild(heading);
+            contentDiv.appendChild(excerpt);
+
+            const metaDiv = document.createElement('div');
+            metaDiv.className = 'blog-meta';
+
+            const dateSpan = document.createElement('span');
+            dateSpan.textContent = pubDate;
+
+            const readTimeSpan = document.createElement('span');
+            readTimeSpan.textContent = `${Math.max(1, Math.ceil(descriptionText.length / 1500))} min read`;
+
+            metaDiv.appendChild(dateSpan);
+            metaDiv.appendChild(readTimeSpan);
+
+            box.appendChild(contentDiv);
+            box.appendChild(metaDiv);
+            fragment.appendChild(box);
         });
+
+        blogContainer.innerHTML = ''; // Clear the "Loading..." message
+        blogContainer.appendChild(fragment);
 
     } catch (error) {
         blogContainer.innerHTML = `<p class="loading-blogs" style="color: #ff6b6b;">Failed to load blog posts. Please try again later.</p>`;
