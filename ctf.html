@@ -17,8 +17,8 @@
     <meta property="og:title" content="CTF Competitions | Yousuf Ahmed" />
     <meta property="og:description" content="All competitive cybersecurity CTF participations, global rankings, and performances by Yousuf Ahmed." />
     <meta property="og:image" content="https://yousuf-ahmed06.github.io/assets/images/pfp.jpg" />
-    <meta property="og:image:width" content="800" />
-    <meta property="og:image:height" content="800" />
+    <meta property="og:image:width" content="600" />
+    <meta property="og:image:height" content="600" />
     <meta property="og:image:alt" content="Yousuf Ahmed - CTF Competitions" />
     <meta property="og:locale" content="en_US" />
 
@@ -70,29 +70,32 @@
       ]
     }
     </script>
-    <!-- Google Fonts -->
+    <!-- Preconnect & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/assets/css/style.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" /></noscript>
     <!-- Favicon -->
     <link id="favicon" rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-png">
     <title>CTF Competitions | Yousuf Ahmed</title>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <!-- navbar starts -->
 <header class="ctfs-header">
     <a href="/" class="logo"> Yousuf</a>
 
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Primary Navigation">
         <ul>
             <li>
                 <a href="/#ctfs" class="nav-back-btn">
-                    <i class="fas fa-arrow-left"></i>
+                    <i class="fas fa-arrow-left" aria-hidden="true"></i>
                     <span>Back to Home</span>
                 </a>
             </li>
@@ -101,11 +104,13 @@
 </header>
 <!-- navbar ends -->
 
+<main id="main-content">
 <!-- all ctfs section starts -->
 <section class="ctf-section ctfs-page" id="ctfs-all">
 
-    <h1 class="heading"><i class="fas fa-flag"></i> All <span>CTF Competitions</span></h1>
+    <h1 class="heading"><i class="fas fa-flag" aria-hidden="true"></i> All <span>CTF Competitions</span></h1>
     <p class="quote">Complete archive of competitive cybersecurity and capture-the-flag events, rankings, and team performances.</p>
+    <h2 class="sr-only">Documented CTF Competitions</h2>
 
     <!-- Filter Bar -->
     <div class="ctf-filter-container">
@@ -274,23 +279,24 @@
 
 </section>
 <!-- all ctfs section ends -->
+</main>
 
 <!-- footer section starts -->
-<section class="footer">
+<footer class="footer">
 
-  <p class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/yousuf-ahmed27" target="_blank" rel="noopener noreferrer"> Yousuf Ahmed</a></p>
+  <p class="credit">Designed with <i class="fa fa-heart pulse" aria-hidden="true"></i> by <a href="https://www.linkedin.com/in/yousuf-ahmed27" target="_blank" rel="noopener noreferrer"> Yousuf Ahmed</a></p>
 
-</section>
+</footer>
 <!-- footer section ends -->
 
 <!-- scroll top btn -->
-<a href="#ctfs-all" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
+<a href="#ctfs-all" aria-label="Scroll to top" class="fas fa-angle-up" id="scroll-top"></a>
 
 <!-- jquery cdn -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <!-- custom js -->
-<script src="/assets/js/script.js"></script>
+<script defer src="/assets/js/script.js"></script>
 
 </body>
 </html>

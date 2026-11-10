@@ -1,0 +1,24 @@
+# Yousuf Ahmed — Independent Security Researcher
+
+> Portfolio of Yousuf Ahmed, an Independent Security Researcher based in Karachi, Pakistan, specializing in web application security, vulnerability research, offensive security, and competitive Capture The Flag (CTF) competitions.
+
+## Key Pages
+- [Home & Portfolio](https://yousuf-ahmed06.github.io/): Overview, credentials (CRTA, ISC2 CC), education, experience, recent CTFs, and latest technical blog posts.
+- [CTF Competitions Archive](https://yousuf-ahmed06.github.io/ctf.html): Full filterable archive of CTF placements and team/solo performances (BCS CTF 2026 Top 4%, HTB Cyber Apocalypse 2026 Top 10% Solo, World Wide CTF 2025 Top 2.5%, etc.).
+
+## Credentials
+- CRTA - Certified Red Team Analyst (CyberWarfareLabs)
+- ISC2 Certified in Cybersecurity (CC)
+- Web Application Hacking (Cybrary)
+- CS50's Introduction to Programming with Python (Harvard University)
+- Network Technician Career Path (Cisco Networking Academy)
+
+## Profiles
+- [LinkedIn](https://www.linkedin.com/in/yousuf-ahmed27/)
+- [GitHub](https://github.com/Yousuf-Ahmed06/)
+- [X (Twitter)](https://x.com/Yousuf_Ahmed__)
+- [Medium](https://medium.com/@yousuf06)
+- [TryHackMe](https://tryhackme.com/p/yousufA)
+- [Hack The Box](https://profile.hackthebox.com/profile/019fb451-08e6-7376-8910-a12cef165be2)
+- [HackerOne](https://hackerone.com/yousuf_06)
+- [Intigriti](https://app.intigriti.com/researcher/profile/yousuf_06)

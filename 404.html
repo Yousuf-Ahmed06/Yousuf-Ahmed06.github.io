@@ -7,19 +7,22 @@
     <meta name="keywords" content="yousuf ahmed, 404, page not found, penetration tester, security researcher, portfolio" />
     <meta name="description" content="404 - Page Not Found. Yousuf Ahmed's Personal Portfolio." />
     <meta name="robots" content="noindex, follow" />
-    <!-- Google Fonts -->
+    <!-- Preconnect & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/assets/css/style.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" /></noscript>
     <!-- Favicon -->
     <link id="favicon" rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-png">
     <title>404 | Page Not Found - Yousuf Ahmed</title>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <!-- navbar starts -->
 <header>
@@ -30,7 +33,7 @@
       <span></span>
       <span></span>
     </button>
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Primary Navigation">
         <ul>
         <li><a href="/#about">About</a></li>
         <li><a href="/#certifications">Certifications</a></li>
@@ -42,6 +45,7 @@
 </header>
 <!-- navbar ends -->
 
+<main id="main-content">
 <!-- 404 section start -->
 <section class="page_404">
     <div class="container">
@@ -50,12 +54,12 @@
       </div>
       
       <div class="msg">
-        <h3>Looks like you're lost</h3>
+        <h2>Looks like you're lost</h2>
         <p>The page you are looking for is not available or has been moved.</p>
        
         <div class="backbtn">
           <a href="/" class="btn">
-              <i class="fas fa-arrow-left"></i>
+              <i class="fas fa-arrow-left" aria-hidden="true"></i>
               <span>Back to Home</span>
           </a>
         </div>
@@ -63,21 +67,22 @@
     </div>
 </section>
 <!-- 404 section end -->
+</main>
 
 <!-- footer section starts -->
-<section class="footer">
+<footer class="footer">
 
-  <p class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/yousuf-ahmed27" target="_blank" rel="noopener noreferrer"> Yousuf Ahmed</a></p>
+  <p class="credit">Designed with <i class="fa fa-heart pulse" aria-hidden="true"></i> by <a href="https://www.linkedin.com/in/yousuf-ahmed27" target="_blank" rel="noopener noreferrer"> Yousuf Ahmed</a></p>
 
-</section>
+</footer>
 <!-- footer section ends -->
 
 <!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
 <!-- jquery cdn -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
 
-<script src="/assets/js/script.js"></script>
+<script defer src="/assets/js/script.js"></script>
 
 </body>
 </html>

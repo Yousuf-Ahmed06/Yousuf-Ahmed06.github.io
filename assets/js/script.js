@@ -3,10 +3,12 @@ $(document).ready(function () {
     $('#menu').click(function () {
         $(this).toggleClass('fa-times');
         $('.navbar').toggleClass('nav-toggle');
+        const isOpen = $(this).hasClass('fa-times');
+        $(this).attr('aria-expanded', String(isOpen)).attr('aria-label', isOpen ? 'Close Menu' : 'Open Menu');
     });
 
     $(window).on('scroll load', function () {
-        $('#menu').removeClass('fa-times');
+        $('#menu').removeClass('fa-times').attr('aria-expanded', 'false').attr('aria-label', 'Open Menu');
         $('.navbar').removeClass('nav-toggle');
 
         const scrollTopBtn = document.querySelector('#scroll-top');
